@@ -12,6 +12,9 @@ module.exports = {
       type: 'number',
       autoIncrement: true
     },
+    userid: {
+      type: 'number'
+    },
     roomid: {
       type: 'number'
     },

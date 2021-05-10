@@ -19,8 +19,22 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
- // '/nodeapp/': { view: 'pages/homepage' },
-  'GET /roomlistdetail' : 'RoomlistdetailController.listall' 
+ '/': { view: 'pages/homepage' },
+ //Roomlist
+ 'POST /roomlist' : 'RoomlistController.create',
+ 'GET /roomlist/:id' : 'RoomlistController.findOne',
+ 'PATCH /roomlist/:id' : 'RoomlistController.update',
+ 'DELETE /roomlist/:id' : 'RoomlistController.delete',
+//Roombill
+'GET /roombill' : 'RoombillController.find',
+'POST /roombill' : 'RoombillController.create',
+'PATCH /roombill:id' : 'RoombillController.update',
+'DELETE /roombill/:id' : 'RoombillController.delete',
+ //Roomlistdetail
+  'GET /roomlistdetail' : 'RoomlistdetailController.listall',
+  //User
+  'POST /user/login' : 'UserController.login',
+  'POST /user/signup' : 'UserController.signup',
 
   /***************************************************************************
   *                                                                          *

@@ -18,5 +18,20 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
+  RoomlistController:{
+    '*' : 'isLoggedIn'
+  },
+  RoombillController:{
+    '*' : 'isLoggedIn'
+  },
+  RoomdetailController:{
+    '*' : 'isLoggedIn'
+  },
+  RoomlistdetailController:{
+    '*' : 'isLoggedIn'
+  },
+  UserController:{
+    '*' : true
+  }
 
 };

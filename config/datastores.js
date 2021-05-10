@@ -49,10 +49,10 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
      adapter: 'sails-mysql',
-     user: 'sig88195_admin',
-     password: 'Fpt@2019',
-     host: '112.78.2.222',
-     database: 'sig88195_phongtro',
+     user: 'tamyvn1_tamy',
+     password: 'casiofx570es',
+     host: '45.122.221.122',
+     database: 'tamyvn1_chutrotmp',
      //url: 'mysql://sig88195_admin:Fpt@2019@112.78.2.222/sig88195_phongtro',
   },
 
