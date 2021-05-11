@@ -30,6 +30,11 @@ module.exports.routes = {
 'POST /roombill' : 'RoombillController.create',
 'PATCH /roombill:id' : 'RoombillController.update',
 'DELETE /roombill/:id' : 'RoombillController.delete',
+//Roomdetail
+'GET /roomdetail' : 'RoomdetailController.find',
+'POST /roomdetail' : 'RoomdetailController.create',
+'PATCH /roomdetail:id' : 'RoomdetailController.update',
+'DELETE /roomdetail/:id' : 'RoomdetailController.delete',
  //Roomlistdetail
   'GET /roomlistdetail' : 'RoomlistdetailController.listall',
   //User

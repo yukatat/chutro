@@ -21,11 +21,15 @@ module.exports = {
     uname: {
       type: 'string'
     },
+    cmnd: {
+      type: 'string'
+    },
     sdt: {
       type: 'string'
     },     
     rdate: {
-      type: 'string'
+      type: 'ref',
+      columnType: 'datetime'
     },      
     tiencoc: {
       type: 'number'

@@ -31,6 +31,8 @@ module.exports = {
       ON roomlist.roomid = roomdetail.roomid 
       WHERE roomlist.status = 1
       AND roomdetail.valid = 1
+      AND roomlist.userid = $1
+      AND roomdetail.userid = $1
       UNION 
       SELECT
       roomlist.id as roomlist_id,
@@ -47,10 +49,11 @@ module.exports = {
       '' as gianuoc,
       '' as tiente  
       FROM roomlist 
-      WHERE roomlist.status = 0`;
+      WHERE roomlist.status = 0
+      AND roomlist.userid = $1`;
 
       // Send it to the database.
-      var rawResult = await sails.sendNativeQuery(NAMES_OF_PETS_SQL);
+      var rawResult = await sails.sendNativeQuery(NAMES_OF_PETS_SQL, [req.user]);
       Result = rawResult.rows;
       Result.sort(function(a, b){
         return a.roomid - b.roomid;

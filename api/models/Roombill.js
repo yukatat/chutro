@@ -19,7 +19,8 @@ module.exports = {
       type: 'number'
     },
     ngay: {
-      type: 'string'
+      type: 'ref',
+      columnType: 'datetime'
     },   
     nuoccu: {
       type: 'number'
