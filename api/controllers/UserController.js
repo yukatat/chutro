@@ -57,7 +57,7 @@ module.exports = {
       }
 
 
-      const token = JWTService.issuer({user: user.id}, '1 day');
+      const token = JWTService.issuer({user: user.id}, '365 day');
       return res.ok({token});
     }
     catch (err) {
