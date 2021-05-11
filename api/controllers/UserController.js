@@ -21,6 +21,11 @@ module.exports = {
       const params = await schema.validate(req.allParams());
       const email = params.value.email;
       const password = await UtilService.hashPassword(params.value.password);
+      //check email exist
+      const userexist = await sails.models.user.findOne({email});
+      if(userexist){
+        return res.badRequest({err: 'Tài khoản này đã tồn tại' });
+      }
       //create new user
       const user = await sails.models.user.create({
         email,
