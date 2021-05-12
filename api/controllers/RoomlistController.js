@@ -8,15 +8,22 @@
 const User = require("../models/User");
 
 module.exports = {
+    async find(req, res) {
+        try {
+            let params =  req.allParams();
+            params.userid = req.user;
+            const roomlist = await sails.models.roomlist.find(params);
+            return res.ok(roomlist);
+        }
+        catch (err) {
+            return res.serverError(err);
+        }
+    },
     async create(req, res) {
         try {
             let params =  req.allParams();
-            const roomlist = await sails.models.roomlist.create({
-                userid: req.user,
-                roomid: params.roomid,
-                name: params.name,
-                status: params.status
-            });
+            params.userid = req.user;
+            const roomlist = await sails.models.roomlist.create(params);
             return res.ok(roomlist);
         }
         catch (err) {

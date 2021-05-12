@@ -8,7 +8,11 @@
 module.exports = {
     async find(req, res) {
         try {
-            const roomdetail = await sails.models.roomdetail.find({roomid: req.param('roomid'), valid: req.param('valid'), userid: req.user});
+            let params =  req.allParams();
+            params.userid = req.user;
+            const roomdetail = await sails.models.roomdetail.find(
+                params
+                );
             return res.ok(roomdetail);
         }
         catch (err) {
@@ -18,20 +22,8 @@ module.exports = {
     async create(req, res) {
         try {
             let params =  req.allParams();
-            const roomdetail = await sails.models.roomdetail.create({
-                userid: req.user,
-                roomid: params.roomid,
-                uname: params.uname,
-                cmnd: params.cmnd, 
-                sdt: params.sdt,
-                rdate: params.rdate,
-                tiencoc: params.tiencoc,
-                giathue: params.giathue,
-                giadien: params.giadien,
-                gianuoc: params.gianuoc,
-                tiente: params.tiente,
-                valid: params.valid,
-            });
+            params.userid = req.user;
+            const roomdetail = await sails.models.roomdetail.create(params);
             return res.ok(roomdetail);
         }
         catch (err) {

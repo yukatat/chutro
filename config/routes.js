@@ -22,11 +22,15 @@ module.exports.routes = {
  '/': { view: 'pages/homepage' },
  //Roomlist
  'POST /roomlist' : 'RoomlistController.create',
+ 'GET /roomlist' : 'RoomlistController.find',
  'GET /roomlist/:id' : 'RoomlistController.findOne',
  'PATCH /roomlist/:id' : 'RoomlistController.update',
  'DELETE /roomlist/:id' : 'RoomlistController.delete',
 //Roombill
 'GET /roombill' : 'RoombillController.find',
+'GET /roombill/findbillingopen' : 'RoombillController.findbillingopen',
+'GET /roombill/findbilling1month' : 'RoombillController.findbilling1month',
+'GET /roombill/findbilling3month' : 'RoombillController.findbilling3month',
 'POST /roombill' : 'RoombillController.create',
 'PATCH /roombill:id' : 'RoombillController.update',
 'DELETE /roombill/:id' : 'RoombillController.delete',

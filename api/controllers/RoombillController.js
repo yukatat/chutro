@@ -17,26 +17,51 @@ module.exports = {
             return res.serverError(err);
         }
     },
+    async findbillingopen(req, res) {
+        try {
+            const roombill = await sails.models.roombill.find({status: false})
+            .sort('roomid ASC');
+            return res.ok(roombill);
+        }
+        catch (err) {  
+            return res.serverError(err);
+        }
+    },
+    async findbilling1month(req, res) {
+        try {
+            const date = new Date();
+            const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            const roombill = await sails.models.roombill.find({
+                ngay: { '>=': firstDay, '<=': lastDay }
+            })
+            .sort('roomid ASC');
+            return res.ok(roombill);
+        }
+        catch (err) {
+            return res.serverError(err);
+        }
+    },
+    async findbilling3month(req, res) {
+        try {
+            const date = new Date();
+            const firstDay = new Date(date.getFullYear(), date.getMonth()-2, 1);
+            const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            const roombill = await sails.models.roombill.find({
+                ngay: { '>=': firstDay, '<=': lastDay }
+            })
+            .sort('roomid ASC');
+            return res.ok(roombill);
+        }
+        catch (err) {
+            return res.serverError(err);
+        }
+    },
     async create(req, res) {
         try {
             let params =  req.allParams();
-            const roombill = await sails.models.roombill.create({
-                userid: req.user,
-                roomid: params.roomid,
-                ngay: params.ngay,
-                nuoccu: params.nuoccu,
-                diencu: params.diencu,
-                nuocmoi: params.nuocmoi,
-                dienmoi: params.dienmoi,
-                tiendien: params.tiendien,
-                tiennuoc: params.tiennuoc,
-                tiendiennuoc: params.tiendiennuoc,
-                tienphong: params.tienphong,
-                tongtien: params.tongtien,
-                tiendadong: params.tiendadong,
-                ghichu: params.ghichu,
-                status: params.status,
-            });
+            params.userid = req.user;
+            const roombill = await sails.models.roombill.create(params);
             return res.ok(roombill);
         }
         catch (err) {
