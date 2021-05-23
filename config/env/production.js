@@ -265,8 +265,8 @@ module.exports = {
        'https://chutro.com',  */  
        'https://nodeapptmp.herokuapp.com',
        'http://nodeapptmp.herokuapp.com',
-//       'https://localhost',
-//       'http://localhost'
+       'https://localhost',
+       'http://localhost',
     //   'https://staging.example.com',
      ],
 
