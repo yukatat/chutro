@@ -261,8 +261,10 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
      onlyAllowOrigins: [
-       'http://chutro.com',
-       'https://chutro.com',   
+/*        'http://chutro.com',
+       'https://chutro.com',  */  
+       'https://nodeapptmp.herokuapp.com',
+       'http://nodeapptmp.herokuapp.com',
 //       'https://localhost',
 //       'http://localhost'
     //   'https://staging.example.com',
