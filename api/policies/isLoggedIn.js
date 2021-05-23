@@ -12,7 +12,7 @@ module.exports = async function(req, res, next) {
     const user = await sails.models.user.findOne({
         id : decodedToken.user
     });
-    if(user){
+    if(!user){
         res.status(401);
         return res.send('Credential không hợp lệ');
     }
